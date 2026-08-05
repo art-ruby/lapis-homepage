@@ -1,0 +1,87 @@
+{
+  "brand": {
+    "name": "LAPIS",
+    "campaign": "The Muse of Lapis",
+    "tagline": { "kr": "깊고 푸른 우아함", "en": "A deep, quiet elegance" },
+    "tone": "Quiet Luxury"
+  },
+  "color": {
+    "core": {
+      "lapisDeep": "#0A1A3C",
+      "lapisMid": "#1E3A6E",
+      "black": "#050508",
+      "offWhite": "#F5F3EE",
+      "gold": "#C9A24B",
+      "goldLight": "#E8D4A0",
+      "goldDeep": "#8A6A1F"
+    },
+    "semantic": {
+      "bgPrimary": "{color.core.black}",
+      "bgSecondary": "{color.core.lapisDeep}",
+      "bgTertiary": "{color.core.lapisMid}",
+      "bgInverse": "{color.core.offWhite}",
+      "textPrimary": "{color.core.offWhite}",
+      "textSecondary": "rgba(245,243,238,0.72)",
+      "textInverse": "{color.core.lapisDeep}",
+      "textAccent": "{color.core.goldLight}",
+      "borderHairline": "rgba(201,162,75,0.25)",
+      "borderActive": "{color.core.gold}",
+      "stateHover": "rgba(201,162,75,0.10)",
+      "stateFocusRing": "{color.core.goldLight}",
+      "stateError": "#B5654F",
+      "stateSuccess": "#6F8F73"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "serifEn": "'Playfair Display', serif",
+      "scriptEn": "'Cormorant Garamond', serif",
+      "serifKr": "'Noto Serif KR', serif",
+      "sansKr": "'Pretendard Variable', -apple-system, sans-serif"
+    },
+    "scale": {
+      "display":  { "size": "clamp(52px, 10vw, 120px)", "weight": 600, "tracking": "0.18em", "font": "serifEn" },
+      "h1":       { "size": "clamp(28px, 3.4vw, 42px)", "weight": 500, "tracking": "0.02em", "font": "serifKr" },
+      "h2":       { "size": "24px-28px", "weight": 500, "tracking": "0.02em", "font": "serifKr" },
+      "eyebrow":  { "size": "16px-18px", "weight": 400, "tracking": "0.08em", "font": "scriptEn", "style": "italic" },
+      "body":     { "size": "15px-15.5px", "weight": 300, "tracking": "0", "lineHeight": "1.9-2.0", "font": "sansKr" },
+      "caption":  { "size": "12px-13px", "weight": 400, "tracking": "0.1em", "font": "sansKr" },
+      "button":   { "size": "13px", "weight": 400, "tracking": "0.15em-0.2em", "font": "sansKr" }
+    }
+  },
+  "spacing": {
+    "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "24px",
+    "6": "32px", "7": "48px", "8": "64px", "9": "96px", "10": "128px", "11": "160px"
+  },
+  "grid": {
+    "containerMaxWidth": "1280px",
+    "columns": { "desktop": 12, "tablet": 8, "mobile": 4 },
+    "margin": { "desktop": "6vw", "tablet": "40px", "mobile": "24px" },
+    "gutter": { "desktop": "24px", "mobile": "16px" }
+  },
+  "breakpoints": {
+    "mobile": "0px",
+    "tablet": "600px",
+    "desktop": "1024px",
+    "wide": "1440px"
+  },
+  "motion": {
+    "easing": {
+      "out": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "inOut": "cubic-bezier(0.65, 0, 0.35, 1)"
+    },
+    "duration": {
+      "fast": "200ms",
+      "base": "400ms",
+      "slow": "800ms",
+      "cinematic": "1200ms"
+    },
+    "forbidden": ["bounce", "elastic", "spring"]
+  },
+  "iconography": {
+    "strokeWidth": "1px",
+    "sizes": [16, 20, 24, 32],
+    "brandMotif": "✦",
+    "colors": ["gold", "offWhite"]
+  }
+}
