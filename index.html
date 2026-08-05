@@ -104,13 +104,13 @@
   .story-grid{display:flex;flex-wrap:wrap;gap:64px;align-items:center;}
   .story-text{flex:1 1 420px;}
   .story-text h2{font-family:var(--serif-kr);font-weight:500;font-size:clamp(28px,3.4vw,42px);margin-bottom:28px;}
-  .story-lead{font-size:15.5px;line-height:2;color:rgba(245,243,238,.85);max-width:480px;margin-bottom:20px;}
+  .story-lead{font-size:15.5px;line-height:2;color:rgba(245,243,238,.72);max-width:480px;margin-bottom:20px;}
   .story-more{
     max-height:0;opacity:0;overflow:hidden;
     transition:max-height 600ms var(--ease-out), opacity 500ms var(--ease-out);
   }
   .story-more.open{max-height:900px;opacity:1;}
-  .story-more p{font-size:15.5px;line-height:2;color:rgba(245,243,238,.72);max-width:480px;margin-bottom:8px;}
+  .story-more p{font-size:15.5px;line-height:2;color:rgba(245,243,238,.72);max-width:480px;margin-bottom:32px;}
   .story-toggle{
     background:none;border:none;color:var(--gold-light);font-size:13px;letter-spacing:.1em;
     padding:8px 0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;margin-top:4px;
@@ -137,19 +137,19 @@
   .abstract-panel.compact{aspect-ratio:auto;position:absolute;inset:0;}
 
   /* reflective prompt — ephemeral, no persistence claim */
-  .story-prompt{
-    max-width:480px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(201,162,75,.2);
+  .story-prompt{max-width:420px;}
+  .story-prompt-q{font-size:12.5px;letter-spacing:.1em;color:var(--gold-light);margin-bottom:12px;}
+  .story-prompt-form{display:flex;gap:12px;}
+  .story-prompt-input{
+    flex:1;background:none;border:none;border-bottom:1px solid rgba(201,162,75,.25);outline:none;
+    color:var(--off-white);font-family:inherit;font-size:14.5px;padding:10px 4px;transition:border-color .3s;
   }
-  .story-prompt-label{font-family:var(--script-en);font-style:italic;font-size:14px;letter-spacing:.08em;color:var(--gold-light);margin-bottom:10px;}
-  .story-prompt-q{font-family:var(--serif-kr);font-size:17px;margin-bottom:16px;color:var(--off-white);}
-  .story-prompt-form{display:flex;gap:14px;border-bottom:1px solid rgba(201,162,75,.25);padding-bottom:10px;transition:border-color .3s;}
-  .story-prompt-form.focus{border-color:var(--gold);}
-  .story-prompt-input{flex:1;background:none;border:none;outline:none;color:var(--off-white);font-family:inherit;font-size:14.5px;padding:6px 2px;}
   .story-prompt-input::placeholder{color:rgba(245,243,238,.4);}
-  .story-prompt-submit{background:none;border:none;color:var(--gold-light);font-size:16px;cursor:pointer;padding:6px 4px;min-width:32px;}
+  .story-prompt-input:focus{border-color:var(--gold);}
   .story-prompt-reply{
-    margin-top:16px;min-height:20px;font-family:var(--serif-kr);font-size:14.5px;color:var(--gold-light);
-    opacity:0;transform:translateY(6px);transition:opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    margin-top:16px;font-family:var(--script-en);font-style:italic;font-size:13.5px;color:rgba(232,212,160,.85);
+    opacity:0;transform:translateY(10px);transition:opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    pointer-events:none;
   }
   .story-prompt-reply.show{opacity:1;transform:translateY(0);}
 
@@ -210,7 +210,10 @@
   /* ---------- contact ---------- */
   .contact-section{max-width:640px;margin:0 auto;padding:0 6vw;text-align:center;}
   .contact-section h2{font-family:var(--serif-kr);font-weight:500;font-size:clamp(28px,3.4vw,42px);margin-bottom:16px;}
-  .contact-section > p{font-size:15px;color:rgba(245,243,238,.72);margin-bottom:40px;}
+  .contact-section > p{font-size:15px;color:rgba(245,243,238,.72);margin-bottom:8px;}
+  .contact-section > p.contact-email{font-size:14px;margin-bottom:40px;}
+  .contact-email a{color:var(--gold-light);text-decoration:none;}
+  .contact-email a:hover{color:var(--gold);}
   .subscribe{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
   .subscribe input{background:none;border:none;border-bottom:1px solid rgba(201,162,75,.25);color:var(--off-white);font-size:15px;padding:12px 4px;min-width:220px;flex:1 1 220px;outline:none;transition:border-color .3s;font-family:inherit;}
   .subscribe input:focus{border-bottom-color:var(--gold);}
@@ -278,19 +281,17 @@
     <div class="story-text fade-up" id="storyText">
       <span class="eyebrow">BRAND STORY</span>
       <h2>왜 라피스인가</h2>
-      <p class="story-lead">청금석의 빛깔 위에, 말보다 먼저 남는 존재감을 겹쳐 놓았다.</p>
+      <p class="story-lead">청금석은 오랫동안 밤하늘의 색을 담은 돌로 여겨졌다.</p>
 
       <div class="story-more" id="storyMore">
-        <p>청금석은 오랫동안 밤하늘의 색을 담은 돌로 여겨졌다. 라피스는 그 빛깔 위에 한복 저고리의 곡선을 겹쳐, 서양의 조향 문법과 한국적 실루엣이 교차하는 지점에서 태어났다.</p>
+        <p>라피스는 그 빛깔 위에 한복 저고리의 곡선을 겹쳐, 서양의 조향 문법과 한국적 실루엣이 교차하는 지점에서 태어났다.</p>
 
         <div class="story-prompt">
-          <div class="story-prompt-label">A Quiet Moment</div>
           <div class="story-prompt-q">당신의 조용한 순간은?</div>
           <form class="story-prompt-form" id="promptForm">
-            <input class="story-prompt-input" id="promptInput" type="text" placeholder="한 문장으로 적어보세요" aria-label="당신의 조용한 순간">
-            <button class="story-prompt-submit" type="submit" aria-label="전송">→</button>
+            <input class="story-prompt-input" id="promptInput" type="text" placeholder="한 줄로 남겨보세요" aria-label="조용한 순간">
           </form>
-          <div class="story-prompt-reply" id="promptReply"></div>
+          <div class="story-prompt-reply" id="promptReply">그 순간, 여기 잠시 머뭅니다.</div>
         </div>
       </div>
 
@@ -428,6 +429,7 @@
     <span class="eyebrow">STAY IN TOUCH</span>
     <h2>문의</h2>
     <p>새로운 소식을 가장 먼저 전해드립니다.</p>
+    <p class="contact-email"><a href="mailto:beautimind01@gmail.com">beautimind01@gmail.com</a></p>
     <form class="subscribe" id="subscribeForm">
       <input type="email" id="subscribeEmail" placeholder="이메일 주소" aria-label="이메일 주소">
       <button type="submit">구독하기</button>
@@ -494,22 +496,11 @@
   var promptForm = document.getElementById('promptForm');
   var promptInput = document.getElementById('promptInput');
   var promptReply = document.getElementById('promptReply');
-  var replies = [
-    '그 순간, 라피스가 함께합니다.',
-    '조용했지만 선명했던 순간이네요.',
-    '그 기억에 깊고 푸른빛이 스며듭니다.'
-  ];
-  promptForm.addEventListener('focusin', function(){ promptForm.classList.add('focus'); });
-  promptForm.addEventListener('focusout', function(){ promptForm.classList.remove('focus'); });
+  promptInput.addEventListener('input', function(){ promptReply.classList.remove('show'); });
   promptForm.addEventListener('submit', function(e){
     e.preventDefault();
     if (!promptInput.value.trim()) return;
-    var reply = replies[Math.floor(Math.random() * replies.length)];
-    promptReply.textContent = reply;
-    promptReply.classList.remove('show');
-    void promptReply.offsetWidth; /* restart transition */
     promptReply.classList.add('show');
-    promptInput.value = '';
   });
 
   /* ---------- newsletter ---------- */
