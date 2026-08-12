@@ -81,6 +81,13 @@
   --duration-slow: 800ms;
   --duration-cinematic: 1200ms;
 
+  /* Scroll-driven motion switch. Scroll-linked effects (pinned sections,
+     parallax) are not CSS transitions, so zeroing the duration tokens below
+     cannot turn them off. Multiply any scroll progress by this instead:
+       --p: calc(var(--progress, 0) * var(--motion-scroll));
+     1 = scroll motion on, 0 = frozen at the start of its timeline. */
+  --motion-scroll: 1;
+
   /* ---------- Iconography ---------- */
   --icon-stroke: 1px;
   --icon-sm: 16px;
@@ -96,5 +103,23 @@
     --duration-base: 1ms;
     --duration-slow: 1ms;
     --duration-cinematic: 1ms;
+
+    /* Freezes every scroll-linked effect at progress 0. Components that pin or
+       translate on scroll must ALSO drop their tall scroll wrappers and their
+       `position: sticky` in their own reduced-motion block — collapsing the
+       motion alone would leave an empty scroll region behind. */
+    --motion-scroll: 0;
+  }
+
+  /* Escape hatch. A demo or a presentation still has to be able to show the
+     motion on a machine whose OS has animations switched off. Nothing sets
+     this attribute automatically — only an explicit human action does, so the
+     OS preference remains the default in every other case. */
+  :root[data-motion="force"] {
+    --duration-fast: 200ms;
+    --duration-base: 400ms;
+    --duration-slow: 800ms;
+    --duration-cinematic: 1200ms;
+    --motion-scroll: 1;
   }
 }
