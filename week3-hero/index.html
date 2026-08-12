@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAPIS — The Muse of Lapis</title>
+<meta name="description" content="깊고 푸른 우아함. LAPIS는 조용한 럭셔리를 향으로 옮깁니다.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Playfair+Display:wght@400;500&family=Noto+Serif+KR:wght@300;400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#hero">본문으로 건너뛰기</a>
+
+<!-- ── Nav ─────────────────────────────────────────────
+     투명 → 스크롤하면 solid. 820px 아래에서는 메뉴가 접힌다. -->
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#hero">LAPIS</a>
+  <nav class="nav__links" aria-label="주요 메뉴">
+    <a href="#story">Story</a>
+    <a href="#notes">Notes</a>
+    <a href="#collection">Collection</a>
+    <a href="#philosophy">Philosophy</a>
+  </nav>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+    <span class="sr-only">메뉴 열기</span>
+    <span class="nav__bar" aria-hidden="true"></span>
+    <span class="nav__bar" aria-hidden="true"></span>
+  </button>
+</header>
+
+<main>
+
+<!-- ── Hero ────────────────────────────────────────────
+     1784 방식. 바깥이 250vh(=모션 타임라인), 안쪽 stage가 sticky로 고정된다.
+     JS는 --progress(0→1) 하나만 넘기고, 변형은 전부 style.css가 계산한다. -->
+<section class="hero" id="hero" data-scroll-progress>
+  <div class="hero__stage">
+
+    <video class="hero__video" autoplay muted loop playsinline
+           poster="assets/hero-poster.jpg">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="hero__grad" aria-hidden="true"></div>
+
+    <div class="hero__copy">
+      <p class="hero__eyebrow">깊고 푸른 우아함</p>
+
+      <!-- 1784 방식: 타이틀을 단어로 쪼개고 좌/우를 번갈아 출발점으로 준다.
+           --w 는 등장 순서, --dir 는 어느 쪽에서 들어올지(-1 왼쪽 / 1 오른쪽).
+
+           span 이 두 겹인 이유: 바깥(.word)은 스크롤에 따라 반대쪽으로 빠져나가고,
+           안쪽(.word__in)은 로드 직후 들어온다. 하나의 요소에 transform 을 둘 다
+           걸 수 없어서 층을 나눴다. -->
+      <h1 class="hero__title">
+        <span class="word" style="--w:0; --dir:-1"><span class="word__in">THE</span></span>
+        <span class="word" style="--w:1; --dir:1"><span class="word__in">MUSE</span></span><br>
+        <span class="word" style="--w:2; --dir:-1"><span class="word__in">OF</span></span>
+        <span class="word" style="--w:3; --dir:1"><span class="word__in">LAPIS</span></span>
+      </h1>
+    </div>
+
+    <div class="hero__second">
+      <p class="hero__second-line">한 방울의 푸름이<br>공기의 결을 바꿉니다.</p>
+    </div>
+
+    <p class="hero__hint" aria-hidden="true">SCROLL</p>
+  </div>
+</section>
+
+<div class="divider" data-reveal><span class="divider__mark">✦</span></div>
+
+<!-- ── Brand Story — 좌우 역방향 패럴랙스 ───────────────── -->
+<section class="story" id="story" data-scroll-progress>
+  <div class="story__media">
+    <img src="../images/lapis-bottle.png"
+         alt="어둠 속에서 푸른 빛을 머금은 유리병이 홀로 놓여 있는 정적인 장면">
+  </div>
+  <div class="story__text">
+    <p class="eyebrow">Brand Story</p>
+    <h2 class="h1">고요가<br>가장 짙은 색이 될 때</h2>
+    <p class="body">
+      라피스라줄리는 한때 금보다 귀했습니다. 갈아서 얻은 푸름은
+      성당의 천장과 초상의 옷깃에만 허락되었죠.
+    </p>
+    <p class="body">
+      LAPIS는 그 절제된 사치를 향으로 옮깁니다. 크게 말하지 않아도
+      남는 것, 그것이 우리가 생각하는 우아함입니다.
+    </p>
+  </div>
+</section>
+
+<div class="divider" data-reveal><span class="divider__mark">✦</span></div>
+
+<!-- ── Notes — 3카드 스태거 등장 ─────────────────────────── -->
+<section class="notes" id="notes">
+  <header class="section-head" data-reveal>
+    <p class="eyebrow">Notes</p>
+    <h2 class="h1">세 겹의 시간</h2>
+  </header>
+
+  <ul class="notes__grid">
+    <li class="note" data-reveal="scale" style="--i:0">
+      <img src="../images/note-top.png"
+           alt="이슬이 맺힌 새벽 시트러스 껍질에 첫 빛이 스치는 순간">
+      <h3 class="h2">Top</h3>
+      <p class="note__names">베르가못 · 핑크페퍼</p>
+      <p class="body">문을 열자마자 스치는 첫인상. 차갑고 짧습니다.</p>
+    </li>
+    <li class="note" data-reveal="scale" style="--i:1">
+      <img src="../images/note-heart.png"
+           alt="푸른 그늘 아래 천천히 벌어지는 아이리스 꽃잎의 부드러운 결">
+      <h3 class="h2">Heart</h3>
+      <p class="note__names">아이리스 · 자스민</p>
+      <p class="body">체온을 만나 피어나는 중심. 가장 오래 머뭅니다.</p>
+    </li>
+    <li class="note" data-reveal="scale" style="--i:2">
+      <img src="../images/note-base.png"
+           alt="오래된 나무와 앰버가 어둠 속에서 낮게 가라앉아 있는 깊은 질감">
+      <h3 class="h2">Base</h3>
+      <p class="note__names">샌달우드 · 앰버</p>
+      <p class="body">떠난 뒤에 남는 잔향. 기억이 되는 층입니다.</p>
+    </li>
+  </ul>
+</section>
+
+<div class="divider" data-reveal><span class="divider__mark">✦</span></div>
+
+<!-- ── Rolling text — 코드잇식 앰비언트 루프 ──────────────
+     등장하고 멈추는 게 아니라 계속 흐른다. 트랙을 두 벌 붙여
+     -50% 까지 밀면 이음새 없이 무한 반복된다. -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__set">
+      THE MUSE OF LAPIS <i>✦</i> 깊고 푸른 우아함 <i>✦</i> A DEEP, QUIET ELEGANCE <i>✦</i>
+    </span>
+    <span class="marquee__set">
+      THE MUSE OF LAPIS <i>✦</i> 깊고 푸른 우아함 <i>✦</i> A DEEP, QUIET ELEGANCE <i>✦</i>
+    </span>
+  </div>
+</div>
+
+<!-- ── Collection — 가로 핀 스크롤 (임팩트 구간) ──────────
+     세로 스크롤이 가로 이동으로 바뀐다. 300vh 동안 트랙이 -100vw 이동. -->
+<section class="collection" id="collection" data-scroll-progress>
+  <div class="collection__stage">
+    <div class="collection__track">
+
+      <article class="line">
+        <div class="line__media">
+          <img src="../images/collection-lapis.png"
+               alt="짙은 남색 유리에 금빛 각인이 스민 병이 어둠 위에 떠 있는 모습">
+        </div>
+        <div class="line__text">
+          <p class="eyebrow">01 — Collection</p>
+          <h2 class="h1">LAPIS</h2>
+          <p class="body">밤의 한가운데. 가장 짙고 가장 조용한 푸름.</p>
+          <a class="btn" href="#newsletter">자세히 보기</a>
+        </div>
+      </article>
+
+      <article class="line">
+        <div class="line__media">
+          <img src="../images/runa.png"
+               alt="장미에 둘러싸인 대리석 단 위에서 드레스 자락을 펼친 크리스탈 보틀이 빛나는 분무를 흩뿌리는 순간">
+        </div>
+        <div class="line__text">
+          <p class="eyebrow">02 — Collection</p>
+          <h2 class="h1">LUNA</h2>
+          <p class="body">새벽으로 기우는 빛. 같은 푸름의 옅은 쪽.</p>
+          <a class="btn" href="#newsletter">자세히 보기</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" data-reveal><span class="divider__mark">✦</span></div>
+
+<!-- ── Philosophy — 마스크 리빌 (아래에서 위로 열림) ──────── -->
+<section class="phil" id="philosophy">
+  <header class="section-head" data-reveal>
+    <p class="eyebrow">Philosophy</p>
+    <h2 class="h1">우리가 지키는 세 가지</h2>
+  </header>
+
+  <div class="phil__grid">
+    <div class="phil__item" data-reveal style="--i:0">
+      <p class="phil__num">01</p>
+      <h3 class="h2">덜어내기</h3>
+      <p class="body">더할 것이 없을 때가 아니라, 뺄 것이 없을 때 완성됩니다.</p>
+    </div>
+    <div class="phil__item" data-reveal style="--i:1">
+      <p class="phil__num">02</p>
+      <h3 class="h2">기다리기</h3>
+      <p class="body">향은 시간을 이기지 못합니다. 그래서 시간을 설계합니다.</p>
+    </div>
+    <div class="phil__item" data-reveal style="--i:2">
+      <p class="phil__num">03</p>
+      <h3 class="h2">남기기</h3>
+      <p class="body">기억되는 향은 크게 말한 적이 없습니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" data-reveal><span class="divider__mark">✦</span></div>
+
+<!-- ── Newsletter ──────────────────────────────────────── -->
+<section class="news" id="newsletter" data-reveal>
+  <p class="eyebrow">Contact</p>
+  <h2 class="h1">먼저 받아보세요</h2>
+  <p class="body news__lead">새로운 컬렉션과 비공개 초대를 가장 먼저 전해드립니다.</p>
+
+  <form class="news__form" novalidate>
+    <div class="field">
+      <label class="sr-only" for="email">이메일 주소</label>
+      <input id="email" name="email" type="email" placeholder="your@email.com" required>
+      <span class="field__line" aria-hidden="true"></span>
+    </div>
+    <button class="btn" type="submit">구독하기</button>
+  </form>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__mark">LAPIS</p>
+  <p class="foot__note">A deep, quiet elegance</p>
+  <p class="foot__copy">© 2026 LAPIS. 실습용 예제입니다.</p>
+</footer>
+
+<!-- OS 가 애니메이션을 끈 상태일 때만 나타난다 -->
+<div class="motion-bar">
+  <span>이 PC 는 애니메이션이 꺼져 있어 모션이 재생되지 않습니다.</span>
+  <button type="button" id="motion-on">모션 켜서 보기</button>
+</div>
+
+<script src="motion.js"></script>
+</body>
+</html>
