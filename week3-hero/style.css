@@ -494,7 +494,14 @@ a { color: inherit; text-decoration: none; }
   /* stage 가 static 이 되면 절대배치된 .hero__video 의 기준이 stage(overflow:hidden)
      에서 .hero 로 옮겨간다. 그대로 두면 scale(1.04) 가 잘리지 않고 가로로 넘친다. */
   :root:not([data-motion="force"]) .hero { height: auto; overflow: hidden; }
-  :root:not([data-motion="force"]) .hero__stage { position: static; height: 100vh; }
+  :root:not([data-motion="force"]) .hero__stage {
+    position: static;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   :root:not([data-motion="force"]) .hero__video { transform: none; }
   :root:not([data-motion="force"]) .hero__second {
     position: static; opacity: 1; transform: none; margin-top: var(--space-6);
